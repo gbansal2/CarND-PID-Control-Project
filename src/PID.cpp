@@ -10,12 +10,35 @@ PID::PID() {}
 
 PID::~PID() {}
 
-void PID::Init(double Kp, double Ki, double Kd) {
+void PID::Init(double iKp, double iKi, double iKd) {
+    Kp = iKp;
+    Kd = iKd;
+    Ki = iKi;
+
+    tot_error = 0.0;
 }
+
 
 void PID::UpdateError(double cte) {
 }
 
-double PID::TotalError() {
+void PID::TotalError(double cte) {
+    tot_error += cte*cte;
 }
 
+void PID::posUpdate(double incr) {
+    Kp += incr;
+    Ki += incr;
+    Kd += incr;
+}
+
+void PID::negUpdate(double incr) {
+    Kp -= incr;
+    Ki -= incr;
+    Kd -= incr;
+}
+void PID::updateParams(double factor) {
+    Kp *= factor;
+    Ki *= factor;
+    Kd *= factor;
+}
