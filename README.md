@@ -3,7 +3,9 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 ## Insights 
-This project implements the PID controller
+This project implements the PID controller.
+
+
 P is the proportional gain and provides a quick response when needed to make sure car returns back to the desired path. However, this results in overflow and causes oscillations around the desired path
 I is the integral control and this helps detect bias in the control, and correct this bias using an intergral error metric over time.
 D is the differential control. This helps to smooth out any oscillations caused in the P controller.
